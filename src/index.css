@@ -112,6 +112,18 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+@theme
+{
+  --color-violet:#6E01D0;
+  --color-secondary-violet:#30035E;
+  --color-blue:#0053EC;
+}
+@layer base
+{
+  .hero h1,.hero p{
+    color:white;
+  }
+}
  
 @layer base {
   * {

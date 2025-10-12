@@ -26,7 +26,7 @@ function Header() {
           <a className="mr-5 hover:text-gray-900">Third Link</a>
           <a className="mr-5 hover:text-gray-900">Fourth Link</a>
         </nav>
-        <Button>Login</Button>
+        <Button className="bg-violet">Login</Button>
       </div>
       
     </header>
