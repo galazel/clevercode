@@ -1,17 +1,44 @@
-# React + Vite
+# 🧠 CleverCode
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CleverCode is an interactive, AI-powered learning platform designed to help learners master coding through smart lessons, adaptive quizzes, and real-world projects. Combining education and innovation, CleverCode makes coding simple, practical, and fun for everyone.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **💡 Interactive Lessons:** Learn coding concepts in an easy-to-understand, step-by-step way.
+- **🤖 AI-Generated Quizzes:** Questions adapt to your progress and help you improve continuously.
+- **💻 Smart Coding Practice:** Strengthen your logic and problem-solving skills through hands-on exercises.
+- **🧱 Real-World Projects:** Apply your learning to actual development tasks and build a strong portfolio.
+- **🗣️ Community and Feedback:** Collaborate with other learners and receive AI-driven guidance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🏗️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# clevercode" 
+- ⚛️ **React:** Frontend framework for building interactive UI.
+- 🎨 **Tailwind CSS:** Utility-first CSS framework for modern design.
+- 💬 **Shadcn/UI Components (optional):** For sleek and reusable UI elements.
+- ⚙️ **Node.js / Express (Future):** Planned backend for authentication and course management.
+- 🧠 **AI Integration (Future):** For adaptive learning and smart question generation.
+
+---
+
+## 🏁 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/CleverCode.git
+   cd CleverCode
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+4. **Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.**
+
+---
