@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button"
 
 function Header() {
   return (
-    <header className="text-gray-600 body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className="text-gray-600 body-font sticky top-0 z-50 bg-white shadow-md backdrop-blur-sm">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,10 +21,10 @@ function Header() {
           <span className="ml-3 text-xl">CleverCode</span>
         </a>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">First Link</a>
-          <a className="mr-5 hover:text-gray-900">Second Link</a>
-          <a className="mr-5 hover:text-gray-900">Third Link</a>
-          <a className="mr-5 hover:text-gray-900">Fourth Link</a>
+          <a className="mr-5 hover:text-gray-900" href="#home">Home</a>
+          <a className="mr-5 hover:text-gray-900" href="#features">Features</a>
+          <a className="mr-5 hover:text-gray-900" href="#about">About Us</a>
+          <a className="mr-5 hover:text-gray-900" href="#roadmap">Roadmap</a>
         </nav>
         <Button className="bg-violet">Login</Button>
       </div>

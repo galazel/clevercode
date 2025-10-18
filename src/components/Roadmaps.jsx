@@ -1,131 +1,120 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import React, { useState } from "react";
+import { MapPin } from "lucide-react";
+import { Card, CardContent } from "../components/ui/card";
+import { useNavigate } from "react-router-dom";
+
+const Badge = ({ children, className = "" }) => (
+  <div
+    className={`inline-flex items-center rounded-full border border-transparent px-3 py-1 text-xs font-semibold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${className}`}
+  >
+    {children}
+  </div>
+);
 
 function Roadmaps() {
-  const roadmaps = [
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const milestones = [
     {
-      img: "https://picsum.photos/seed/frontend/300/200",
       title: "Frontend Development",
-      definition:
+      description:
         "Learn HTML, CSS, and JavaScript, then master React to build dynamic and responsive user interfaces.",
-      click: "Start Frontend",
+      color: "bg-red-500",
+      accent: "border-red-500",
     },
     {
-      img: "https://picsum.photos/seed/backend/300/200",
       title: "Backend Development",
-      definition:
+      description:
         "Master databases, APIs, and frameworks like Node.js or Spring Boot to power your applications’ logic.",
-      click: "Explore Backend",
+      color: "bg-amber-500",
+      accent: "border-amber-500",
     },
     {
-      img: "https://picsum.photos/seed/fullstack/300/200",
       title: "Full Stack Development",
-      definition:
+      description:
         "Combine frontend and backend skills to create complete web applications and deploy them online.",
-      click: "Become Full Stack",
+      color: "bg-blue-500",
+      accent: "border-blue-500",
     },
     {
-      img: "https://picsum.photos/seed/data/300/200",
-      title: "Data Science",
-      definition:
-        "Analyze, visualize, and interpret complex datasets using Python, Pandas, and machine learning models.",
-      click: "Start Learning",
-    },
-    {
-      img: "https://picsum.photos/seed/cyber/300/200",
-      title: "Cybersecurity",
-      definition:
-        "Protect systems and data by learning ethical hacking, penetration testing, and security best practices.",
-      click: "Defend Systems",
-    },
-    {
-      img: "https://picsum.photos/seed/ai/300/200",
-      title: "Artificial Intelligence",
-      definition:
-        "Understand neural networks, natural language processing, and deep learning to build smart systems.",
-      click: "Learn AI",
-    },
-    {
-      img: "https://picsum.photos/seed/devops/300/200",
-      title: "DevOps Engineering",
-      definition:
-        "Learn CI/CD, Docker, and cloud automation to improve software deployment and team collaboration.",
-      click: "Master DevOps",
-    },
-    {
-      img: "https://picsum.photos/seed/uiux/300/200",
-      title: "UI/UX Design",
-      definition:
-        "Design beautiful, user-friendly interfaces and improve user experience through research and prototyping.",
-      click: "Design Better",
-    },
-    {
-      img: "https://picsum.photos/seed/mobile/300/200",
-      title: "Mobile App Development",
-      definition:
-        "Develop cross-platform apps using React Native or Flutter and publish them to app stores.",
-      click: "Build Apps",
-    },
-    {
-      img: "https://picsum.photos/seed/cloud/300/200",
-      title: "Cloud Computing",
-      definition:
-        "Learn AWS, Azure, and Google Cloud fundamentals to manage and deploy scalable web applications.",
-      click: "Explore Cloud",
+      title: "Quality Assurance Learning",
+      description:
+        "Perform comprehensive QA, security audits, finalize documentation, and execute the product launch.",
+      color: "bg-emerald-500",
+      accent: "border-emerald-500",
     },
   ];
+  const navigate = useNavigate();
+  const handleOnClick = (index) => {
+    milestones.forEach((e, i) => {
+      if (i == index && isLoggedIn) navigate("/user");
+    });
+  };
 
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-            Available Roadmaps
-          </h1>
-        </div>
-        <div className="w-full">
-          <Carousel className="w-full">
-            <CarouselContent className="-ml-1">
-              {roadmaps.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+    <section
+      className="min-h-screen bg-gray-50 flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 font-sans justify-center"
+      id="roadmap"
+    >
+      <h2 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight text-center">
+        Project Journey Roadmap
+      </h2>
+      <p className="text-xl text-gray-600 mb-16 text-center max-w-3xl">
+        This is our path forward, marking key milestones from initial concept to
+        a successful deployment.
+      </p>
+      <div className="hidden md:block w-full max-w-6xl relative h-72">
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-green-400 rounded-full shadow-inner" />
+
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full flex justify-between px-8">
+          {milestones.map((item, index) => (
+            <div
+              key={index}
+              className="relative flex flex-col items-center w-[20%] group"
+            >
+              <div
+                className={`relative z-10 bg-white border-4 ${item.accent} rounded-full w-10 h-10 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition duration-300 cursor-pointer`}
+              >
+                <MapPin className={`w-5 h-5 text-gray-800 ${item.color}`} />
+              </div>
+
+              <div className="mt-8">
+                <Card
+                  className={`w-full transition duration-300 group-hover:shadow-xl  border-transparent group-hover:${item.accent} group-hover:border-opacity-100 cursor-pointer`}
+                  onClick={handleOnClick(index)}
                 >
-                  <div className="p-1">
-                    <Card className="w-full bg-white shadow-md">
-                      <CardContent className="flex flex-col">
-                        <div className="mb-4">
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            className="w-full h-full object-cover rounded-md"
-                          />
-                        </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 mb-4 flex-1">
-                          {item.definition}
-                        </p>
-                        <button className="self-start px-4 py-2 bg-indigo-500 text-white text-sm rounded-md hover:bg-indigo-600 transition-colors">
-                          {item.click}
-                        </button>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+                  <CardContent className="p-5 text-center flex flex-col items-center">
+                    <h3 className="font-bold text-lg text-gray-800 mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="md:hidden w-full max-w-md mx-auto">
+        <div className="relative">
+          <div className="absolute left-5 top-0 bottom-0 w-1 bg-gray-200" />
+          {milestones.map((item, index) => (
+            <div key={index} className="mb-8 flex items-start relative group">
+              <div
+                className={`z-10 bg-white border-4 ${item.accent} rounded-full w-10 h-10 flex items-center justify-center shadow-lg shrink-0 mr-4 transition duration-300 group-hover:scale-105`}
+              >
+                <MapPin className={`w-5 h-5 text-gray-800 ${item.color}`} />
+              </div>
+              <Card className="flex-1 ml-2 transition duration-300 shadow-lg group-hover:shadow-2xl">
+                <CardContent className="p-4">
+                  <h3 className="font-bold text-lg text-gray-800 mb-0.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
         </div>
       </div>
     </section>
